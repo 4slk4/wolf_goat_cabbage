@@ -41,8 +41,5 @@ class WolfGoatCabbage(Problem):
             
 if __name__ == '__main__':
     wgc = WolfGoatCabbage()
-    # print(wgc.actions(('W','C')))
-    print('Breadth First Search:')
     print(breadth_first_graph_search(wgc).solution())
-    print('Depth First Search:')
     print(depth_first_graph_search(wgc).solution())
