@@ -1,8 +1,10 @@
 from search import *
 
 class WolfGoatCabbage(Problem):
-    def __init__(self, initial=('F', 'G', 'W', 'C'), goal=()):
-        super().__init__(initial, goal)
+    def __init__(self):
+        self.initial = frozenset({'F', 'G', 'W', 'C'})
+        self.goal = frozenset()
+
 
     def goal_test(self, state):
         return state == self.goal
@@ -11,8 +13,8 @@ class WolfGoatCabbage(Problem):
         new_state = set(state)
         action = set(action)
         if 'F' in new_state:
-            return tuple(new_state.difference(action))
-        return tuple(new_state.union(action))
+            return frozenset(new_state.difference(action))
+        return frozenset(new_state.union(action))
     
     def actions(self, state):
         temp_state = set(state)
